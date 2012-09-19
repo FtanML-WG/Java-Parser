@@ -1,11 +1,14 @@
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import java.io.StringReader;
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
 
 import org.junit.Test;
 
+import ftanml.FtanML;
+import ftanml.ParseException;
 import ftanml.objects.FtanArray;
 import ftanml.objects.FtanBoolean;
 import ftanml.objects.FtanElement;
@@ -56,8 +59,10 @@ public class ElementTest {
 	}
 
 	@Test
-	public void testGeneratorAndParser() {
+	public void testGeneratorAndParser() throws ParseException{
 		Util.testWithGenerator(createElement(),"<>");
+		Util.testWithGenerator(createElement(FtanElement.NAME_KEY,new FtanString("")),"<\"\">");
+		Util.test(createElement(FtanElement.NAME_KEY,new FtanString("")),"<''>");
 		Util.testWithGenerator(createElement(FtanElement.NAME_KEY,new FtanString("myTagName")),"<myTagName>");
 		Util.testWithGenerator(createElement(FtanElement.CONTENT_KEY,createArray(new FtanString("myContent"))),"<|myContent>");
 		Util.testWithGenerator(createElement(FtanElement.CONTENT_KEY,new FtanString("myContent")),"<content=\"myContent\">");
