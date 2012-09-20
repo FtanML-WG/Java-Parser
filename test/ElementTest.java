@@ -66,6 +66,7 @@ public class ElementTest {
 		Util.testWithGenerator(createElement(FtanElement.NAME_KEY,new FtanString("myTagName")),"<myTagName>");
 		Util.testWithGenerator(createElement(FtanElement.CONTENT_KEY,createArray(new FtanString("myContent"))),"<|myContent>");
 		Util.testWithGenerator(createElement(FtanElement.CONTENT_KEY,new FtanString("myContent")),"<content=\"myContent\">");
+		Util.testWithGenerator(createElement(FtanElement.CONTENT_KEY,createArray(new FtanString("myContent"),new FtanNumber(0.0))),"<content=[\"myContent\",0.0]>");
 		Util.testWithGenerator(createElement(new FtanString("attr"),new FtanString("myValue")),"<attr=\"myValue\">");
 		Util.test(createElement(new FtanString("attr"),new FtanString("myValue")),"<\"attr\"=\"myValue\">");
 		Util.test(createElement(new FtanString("attr"),new FtanString("myValue")),"<'attr'=\"myValue\">");
