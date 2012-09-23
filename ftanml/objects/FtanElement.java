@@ -6,6 +6,10 @@ import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * This class represents the object model for a FtanML element
+ */
+
 public class FtanElement extends FtanValue {
 	private LinkedHashMap<FtanString, FtanValue> attributes;
 
